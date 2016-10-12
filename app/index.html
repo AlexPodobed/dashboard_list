@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboardList">
+<head>
+    <meta charset="UTF-8">
+    <title ng-bind="title"></title>
+    <meta name="viewport" content="width=device-width">
+    <!-- bower dependencies -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" href="./bower_components/angular-toastr/dist/angular-toastr.css">
+
+    <link rel="stylesheet" href="./styles/app.css">
+</head>
+<body>
+
+
+    <navbar></navbar>
+
+    <div class="container main-content-wrapper">
+        <ui-view></ui-view>
+    </div>
+
+    <footer></footer>
+
+
+
+    <!-- bower dependencies -->
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="./bower_components/ngstorage/ngStorage.js"></script>
+
+    <!-- application files-->
+    <script src="js/app.module.js"></script>
+
+    <script src="js/contacts/contacts.service.js"></script>
+    <script src="js/contacts/contacts.ctrl.js"></script>
+    <script src="js/contacts/contacts.route.js"></script>
+
+    <script src="js/components/notes/notes.directive.js"></script>
+    <script src="js/components/navbar/navbar.directive.js"></script>
+    <script src="js/components/footer/footer.directive.js"></script>
+
+
+    <script src="js/utils/utils.filters.js"></script>
+    <script src="js/utils/utils.directives.js"></script>
+
+    <script src="js/app.config.js"></script>
+    <script src="js/app.run.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<div>
+    <span class="note-title" ng-bind-html="note.text | highlight: filterBy "></span>
+    <span class="note-time" ng-bind-html="note.timestamp | date : 'hh:mm dd MMM yyyy' | highlight: filterBy "></span>
+    <ng-transclude></ng-transclude>
+</div>

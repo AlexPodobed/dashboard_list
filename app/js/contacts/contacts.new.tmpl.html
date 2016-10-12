@@ -1,0 +1,53 @@
+<div class="row">
+    <h2>Create new contact </h2>
+    <hr>
+    <div class="col-md-6 col-md-offset-3">
+        <form ng-submit="vm.createContact()" name="newContactForm">
+            <div class="form-group">
+                <label for="name">Full name</label>
+                <input type="text"
+                       class="form-control"
+                       required id="name"
+                       ng-model="vm.contactModel.name"
+                       placeholder="put full name here ">
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email"
+                       class="form-control"
+                       id="email" required
+                       ng-model="vm.contactModel.email"
+                       placeholder="put email here">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control"
+                       id="phone" required
+                       ng-model="vm.contactModel.phone"
+                       placeholder="put phone here ">
+            </div>
+
+            <div class="form-group">
+                <label for="account_id">Account Id</label>
+                <input type="text" class="form-control"
+                       id="account_id"
+                       ng-model="vm.contactModel.account_id"
+                       placeholder="put account id here ">
+            </div>
+
+            <div class="form-group">
+                <label for="account_description">Account description</label>
+                <input type="text" class="form-control"
+                       id="account_description"
+                       ng-model="vm.contactModel.account_description"
+                       placeholder="put account description here ">
+            </div>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="newContactForm.$invalid">Create</button>
+            <button type="button" class="btn btn-warning" ng-click="vm.cancel()">Cancel</button>
+        </form>
+    </div>
+</div>

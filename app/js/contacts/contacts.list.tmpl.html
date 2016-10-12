@@ -1,0 +1,63 @@
+<div class="col-md-12 contact-list-wrapper">
+    <h2>Contact List</h2>
+    <hr>
+    <div class="contact-list" ng-show="vm.contacts.length">
+        <div class="form-group search-input">
+            <input type="text"
+                   ng-model="vm.search.text"
+                   class="form-control"
+                   placeholder="Put here anything you want to filter">
+            <span class="glyphicon glyphicon-search search-icon"></span>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th ng-click="vm.changeOrder('name')" colspan="3">
+                    Client
+                    <sort-controls reverse="vm.reverse"  value="name" type="vm.orderType"></sort-controls>
+                </th>
+
+                <th ng-click="vm.changeOrder('account_id')">
+                    Accounts
+                    <sort-controls reverse="vm.reverse"  value="account_id" type="vm.orderType"></sort-controls>
+                </th>
+                <th ng-click="vm.changeOrder('notes')" class="notes">
+                    Notes
+                    <sort-controls reverse="vm.reverse"  value="notes" type="vm.orderType"></sort-controls>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contact in vm.contacts | filter : vm.search.text | orderBy:vm.orderType:vm.reverse">
+                        <td class="user-avatar">
+                            <img ng-src="{{contact.picture}}" class="img-rounded">
+                        </td>
+                        <td>
+                            <strong ng-bind-html="contact.name | highlight: vm.search.text"></strong>
+                        </td>
+                        <td>
+                            <span ng-bind-html="contact.phone | highlight: vm.search.text"></span><br>
+                            <a ng-href="mailto:{{contact.email}}"
+                               ng-bind-html="contact.email | highlight: vm.search.text">
+                            </a>
+                        </td>
+                        <td class="accounts">
+                            <a ng-href="{{contact.account_link}}"
+                               ng-bind-html="contact.account_id | highlight: vm.search.text"
+                               target="_blank">
+                            </a>
+                            <span class="description"
+                                  ng-bind-html="contact.account_description | highlight: vm.search.text">
+                            </span>
+                        </td>
+                        <td class="notes">
+                            <note-list data="contact.notes"
+                                       filter-by="vm.search.text"
+                                       class="note-list-wrapper">
+                            </note-list>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

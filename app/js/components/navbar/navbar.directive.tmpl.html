@@ -12,7 +12,10 @@
         <div id="navbar" class="collapse navbar-collapse" ng-class="{collapse: vm.isCollapsed}">
             <ul class="nav navbar-nav">
                 <li ui-sref-active="active">
-                    <a ui-sref="contacts"   href="#">Contacts</a>
+                    <a ui-sref="contacts"   href="#">
+                        <span class="glyphicon glyphicon-user"></span>
+                        Contacts
+                    </a>
                 </li>
                 <li ui-sref-active="active">
                     <a ui-sref="newContact" href="#">
@@ -21,6 +24,6 @@
                     </a>
                 </li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>

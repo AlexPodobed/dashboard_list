@@ -3,7 +3,7 @@
         <a href=""
            ng-if="vm.hiddenNotes.length"
            ng-click="vm.toggleHiddenNotes()">
-            {{vm.hidden ? '+' + vm.hiddenNotes.length + ' more' : 'hide'}}
+            {{vm.hidden ? '+' + vm.hiddenNotes.length + ' more' : '(hide)'}}
         </a>
     </note-item>
     <div ng-class="{'hidden': vm.hidden}" class="hidden-note-list">

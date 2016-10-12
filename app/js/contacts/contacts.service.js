@@ -7,7 +7,7 @@
 
     ContactsFactory.$inject = ["$resource", "API_URL", "$q", "$filter", '$localStorage'];
 
-    var mocked_data = [
+    var mockedData = [
         {
             "id": "57fcd21a0d4e3bf2f3eaba5a",
             "picture": "http://www.gfxtouch.com/wp-content/uploads/2014/12/blankAvatar.jpg",
@@ -249,8 +249,22 @@
         // should fetch data from BE
         // return resource(API_URL + "/contacts");
 
-        if (!$localStorage.contacts) {
-            $localStorage.contacts = mocked_data;
+        initialize();
+
+        var service = {
+            query: query,
+            get: get,
+            save: save
+        };
+
+        return service;
+
+        ////////////
+
+        function initialize() {
+            if (!$localStorage.contacts) {
+                $localStorage.contacts = mockedData;
+            }
         }
 
         function query() {
@@ -265,13 +279,13 @@
             });
         }
 
-        function get(contact_id) {
+        function get(contactId) {
             return $q(function (resolve, reject) {
                 setTimeout(function () {
                     if(!$localStorage.contacts){
                         reject({err:"There is no contacts"});
                     }
-                    var contact = $filter('filter')($localStorage.contacts, {id: contact_id})[0];
+                    var contact = $filter('filter')($localStorage.contacts, {id: contactId})[0];
                     resolve(angular.copy(contact));
                 }, 250);
             });
@@ -280,20 +294,10 @@
         function save(contact) {
             return $q(function (resolve, reject) {
                 setTimeout(function () {
-                    if(!$localStorage.contacts){
-                        reject({err:"There is no contacts"});
-                    }
                     $localStorage.contacts.push(contact);
                     resolve(contact);
                 }, 250);
             });
         }
-
-
-        return {
-            query: query,
-            get: get,
-            save: save
-        };
     }
 })();

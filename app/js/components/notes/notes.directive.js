@@ -28,15 +28,15 @@
                 isOpen: "="
             },
             templateUrl: "js/components/notes/notes.directive.tmpl.html",
-            controller: noteListController,
+            controller: NoteListController,
             controllerAs: "vm",
             bindToController: true
         };
     }
 
-    noteListController.$inject = ['$scope'];
+    NoteListController.$inject = ['$scope'];
 
-    function noteListController($scope) {
+    function NoteListController($scope) {
         var vm = this;
         var notes = angular.copy(this.data);
 

@@ -3,32 +3,45 @@
 
     angular
         .module('dashboardList')
-        .controller("contactListController", contactListController)
-        .controller("contactNewController", contactNewController);
+        .controller("ContactListController", ContactListController)
+        .controller("ContactNewController", ContactNewController);
 
-    contactListController.$inject = ["Contacts"];
-    contactNewController.$inject = ["$state", "Contacts", "toastr"];
 
-    function contactNewController($state, Contacts, toastr) {
+    ContactListController.$inject = ["Contacts"];
+    function ContactListController(Contacts) {
+        var vm = this;
+        vm.orderType = "";
+        vm.searchText = "";
+
+        vm.changeOrder = changeOrder;
+
+        initialize();
+
+        function changeOrder(type) {
+            vm.reverse = (vm.orderType === type) ? !vm.reverse : false;
+            vm.orderType = type;
+        }
+
+        function initialize() {
+            return Contacts.query().then(function (data) {
+                vm.contacts = data;
+                return vm.contacts;
+            });
+        }
+    }
+
+
+    ContactNewController.$inject = ["$state", "Contacts", "toastr"];
+    function ContactNewController($state, Contacts, toastr) {
         var vm = this;
 
-        vm.contactModel = getModel();
+        vm.createContact = createContact;
+        vm.cancel = cancel;
 
-        vm.createContact = function () {
-            Contacts.save(vm.contactModel).then(function () {
-                toastr.success('Successfully created!', "New contact");
-                vm.contactModel = getModel();
-                $state.go('contacts');
-            });
-        };
+        initialize();
 
-        vm.cancel = function () {
-            vm.contactModel = getModel();
-        };
-
-        function getModel() {
-            return {
-                "id": "asd"+new Date().getTime(),
+        function initialize() {
+            vm.contactModel =  {
                 "picture": "http://placehold.it/32x32",
                 "name": "",
                 "phone": "",
@@ -38,23 +51,23 @@
                 "account_description": "",
                 "account_link": ""
             };
+
+            return vm.contactModel;
+        }
+
+        function createContact() {
+            vm.contactModel["id"] = "asd" + new Date().getTime();
+
+            return Contacts.save(vm.contactModel).then(function () {
+                toastr.success('Successfully created!', "New contact");
+                initialize();
+                $state.go('contacts');
+            });
+        }
+
+        function cancel() {
+            initialize();
         }
     }
 
-    function contactListController(Contacts) {
-        var vm = this;
-        vm.orderType = "";
-        vm.search = {
-            text: ""
-        };
-
-        vm.changeOrder = function (type) {
-            vm.reverse = (vm.orderType === type) ? !vm.reverse : false;
-            vm.orderType = type;
-        };
-
-        Contacts.query().then(function (data) {
-            vm.contacts = data;
-        });
-    }
 })();

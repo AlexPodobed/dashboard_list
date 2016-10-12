@@ -3,7 +3,7 @@
 
     angular
         .module('dashboardList')
-        .filter("highlight", highlight);
+        .filter('highlight', highlight);
 
 
     highlight.$inject = ['$sce'];

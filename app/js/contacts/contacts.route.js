@@ -12,14 +12,14 @@
             .state('contacts', {
                 url: "/contacts",
                 templateUrl: "js/contacts/contacts.list.tmpl.html",
-                controller: "contactListController",
+                controller: "ContactListController",
                 controllerAs: "vm",
                 title: "Contact List"
             })
             .state('newContact', {
                 url: "/contacts/new",
                 templateUrl: "js/contacts/contacts.new.tmpl.html",
-                controller: "contactNewController",
+                controller: "ContactNewController",
                 controllerAs: "vm",
                 title: "New Contact"
             });

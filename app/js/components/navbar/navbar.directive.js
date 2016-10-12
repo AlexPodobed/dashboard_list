@@ -11,13 +11,13 @@
             templateUrl: "js/components/navbar/navbar.directive.tmpl.html",
             scope: true,
             replace:true,
-            controller: navbarController,
+            controller: NavbarController,
             controllerAs: "vm",
             bindToController: true
         };
     }
 
-    function navbarController() {
+    function NavbarController() { 
         var vm = this;
         vm.isCollapsed = true;
 

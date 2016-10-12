@@ -17,14 +17,7 @@ body{
     padding: 20px 30px 10px ;
 
     input{
-      border-radius: 0;
-      border: none;
-      border-bottom: 1px solid #e0e1e2;
-      box-shadow: none;
-      font-weight: 300;
-      background: #fbfcfc;
       padding-right: 30px;
-      padding-left: 0;
     }
     .search-icon{
       position: absolute;
@@ -117,6 +110,20 @@ body{
   }
 
 }
+input.form-control{
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #e0e1e2;
+  box-shadow: none;
+  font-weight: 300;
+  background: #fbfcfc;
+  padding-left: 0;
+}
+input.form-control:focus,
+input.form-control:active{
+  box-shadow: none;
+}
+
 
 .footer{
   margin-top: 60px;

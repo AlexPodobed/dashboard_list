@@ -1,7 +1,6 @@
 <div ng-if="!vm.isEmpty">
     <note-item note="vm.firstNote" filter-by="vm.searchText">
-        <a href="" ng-if="vm.hiddenNotes.length"
-           ng-click="vm.toggleHiddenNotes()">
+        <a href="" ng-if="vm.hiddenNotes.length" ng-click="vm.toggleHiddenNotes()">
             {{vm.hidden ? '+' + vm.hiddenNotes.length + ' more' : '(hide)'}}
         </a>
     </note-item>

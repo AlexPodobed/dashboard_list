@@ -34,14 +34,14 @@ module.exports = function (config) {
             './app/js/components/notes/notes.directive.js',
             './app/js/components/navbar/navbar.directive.js',
             './app/js/components/footer/footer.directive.js',
-            './app/js/utils/utils.filters.js',
-            './app/js/utils/utils.directives.js',
+            './app/js/components/sort_controls/sort_control.directive.js',
+            './app/js/filters/utils.filters.js',
             './app/js/app.config.js',
             './app/js/app.run.js',
             // tests
             './app/js/**/*.spec.js',
 
-            'app/js/**/*tmpl.html'
+            './app/js/**/*tmpl.html'
         ],
 
 
@@ -79,7 +79,7 @@ module.exports = function (config) {
 
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        autoWatch: false,
 
 
         // start these browsers
@@ -89,7 +89,7 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        singleRun: true,
 
         // Concurrency level
         // how many browser should be started simultaneous

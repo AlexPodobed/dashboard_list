@@ -40,6 +40,11 @@
         var vm = this;
         var notes = angular.copy(this.data);
 
+        if(!notes.length){
+            return;
+        }
+
+
         vm.searchText = this.filterBy;
 
         $scope.$watch(function () {

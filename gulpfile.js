@@ -15,7 +15,7 @@ gulp.task('connect', function () {
 });
 
 gulp.task('lint', function() {
-    return gulp.src(['./app/js/**/*.js', '!./app/bower_components/**'])
+    return gulp.src(['./app/js/**/*.js', '!./app/bower_components/**', '!./app/**/*.spec.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });

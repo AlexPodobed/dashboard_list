@@ -24,6 +24,4 @@
                 title: "New Contact"
             });
     }
-
-
 })();

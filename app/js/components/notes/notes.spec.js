@@ -45,7 +45,6 @@ describe('noteItemDirective', function () {
 });
 
 
-
 describe('noteListDirective', function () {
     var element;
     var outerScope;
@@ -101,14 +100,14 @@ describe('noteListDirective', function () {
 
     it('should display proper amount of note items', function () {
         var hiddenNotes = element.children().find('div').eq(1).find('div');
-        var firstNote   = element.children().find('div').eq(0);
+        var firstNote = element.children().find('div').eq(0);
 
         expect(firstNote.length + hiddenNotes.length).toEqual(notes.length)
     });
 
 
     it('should display "n-more" link to show notes if note-list more then 2', function () {
-        var link   = element.children().find('div').eq(0).find('a');
+        var link = element.children().find('div').eq(0).find('a');
 
         expect(link.length).toBe(1);
     });
@@ -116,12 +115,11 @@ describe('noteListDirective', function () {
 
     it('should display and hide hidden list of notes by clicking on link', function () {
         var hiddenNotes = element.children().find('div').eq(1);
-        var firstNote   = element.children().find('div').eq(0);
+        var firstNote = element.children().find('div').eq(0);
 
         expect(hiddenNotes.hasClass('hidden')).toBe(true);
         // fire click event
         firstNote.find('a').triggerHandler('click');
         expect(hiddenNotes.hasClass('hidden')).toBe(false);
     });
-
 });

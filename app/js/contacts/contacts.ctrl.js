@@ -41,7 +41,7 @@
         initialize();
 
         function initialize() {
-            vm.contactModel =  {
+            vm.contactModel = {
                 "picture": "http://placehold.it/32x32",
                 "name": "",
                 "phone": "",
@@ -69,5 +69,4 @@
             initialize();
         }
     }
-
 })();

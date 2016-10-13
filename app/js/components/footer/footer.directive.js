@@ -10,8 +10,7 @@
             restrict: 'EA',
             templateUrl: "js/components/footer/footer.directive.tmpl.html",
             scope: true,
-            replace:true
+            replace: true
         };
     }
-
 })();

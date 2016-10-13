@@ -1,14 +1,14 @@
-describe('utils.filters', function() {
+describe('utils.filters', function () {
     var $filter;
     var testStr = "This is example";
 
     function getMatches(result, findStr) {
-        return result.match(new RegExp('<span class="highlighted">'+findStr+'</span>', 'gi')) || [];
+        return result.match(new RegExp('<span class="highlighted">' + findStr + '</span>', 'gi')) || [];
     }
 
     beforeEach(module('dashboardList'));
 
-    beforeEach(inject(function(_$filter_) {
+    beforeEach(inject(function (_$filter_) {
         $filter = _$filter_;
     }));
 
@@ -18,7 +18,7 @@ describe('utils.filters', function() {
 
         result = $filter('highlight')(testStr, findStr);
         result = result.$$unwrapTrustedValue();
-        matches =  getMatches(result, findStr);
+        matches = getMatches(result, findStr);
 
         expect(matches.length).toBe(2);
     });
@@ -29,10 +29,9 @@ describe('utils.filters', function() {
 
         result = $filter('highlight')(testStr, findStr);
         result = result.$$unwrapTrustedValue();
-        matches =  getMatches(result, findStr);
+        matches = getMatches(result, findStr);
 
         expect(matches.length).toBe(0);
         expect(result).toEqual(testStr);
     });
-
 });

@@ -40,10 +40,9 @@
         var vm = this;
         var notes = angular.copy(this.data);
 
-        if(!notes.length){
+        if (!notes.length) {
             return;
         }
-
 
         vm.searchText = this.filterBy;
 
@@ -55,12 +54,11 @@
 
         vm.hidden = true;
         vm.isEmpty = !notes.length;
-        vm.firstNote  = notes.shift();
+        vm.firstNote = notes.shift();
         vm.hiddenNotes = notes;
 
         vm.toggleHiddenNotes = function () {
             vm.hidden = !vm.hidden;
         };
     }
-
 })();

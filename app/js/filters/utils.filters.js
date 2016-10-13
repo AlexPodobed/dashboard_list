@@ -7,16 +7,15 @@
 
 
     highlight.$inject = ['$sce'];
-    function highlight($sce){
+    function highlight($sce) {
         return function (text, matched) {
-            if(matched){
-                text = text.replace(new RegExp('('+matched+')', 'gi'), '<span class="highlighted">$1</span>');
+            if (matched) {
+                text = text.replace(new RegExp('(' + matched + ')', 'gi'), '<span class="highlighted">$1</span>');
                 return $sce.trustAsHtml(text);
-            }else{
+            } else {
                 return text;
             }
         };
     }
-
 
 })();

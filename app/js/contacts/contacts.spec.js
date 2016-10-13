@@ -1,18 +1,18 @@
-describe('ContactListController', function() {
+describe('ContactListController', function () {
     var ContactListController,
         ContactsFactory,
         $controller;
 
     beforeEach(module('dashboardList'));
 
-    beforeEach(inject(function(_$controller_, _Contacts_) {
+    beforeEach(inject(function (_$controller_, _Contacts_) {
         $controller = _$controller_;
         ContactsFactory = _Contacts_;
         ContactListController = $controller('ContactListController', {Contacts: ContactsFactory});
     }));
 
 
-    it('should be defined and have default values', function() {
+    it('should be defined and have default values', function () {
         expect(ContactListController).toBeDefined();
         expect(ContactListController.orderType).toBe('');
         expect(ContactListController.searchText).toBe('');
@@ -42,7 +42,7 @@ describe('ContactNewController', function () {
 
     beforeEach(module('dashboardList'));
 
-    beforeEach(inject(function(_$controller_) {
+    beforeEach(inject(function (_$controller_) {
         $controller = _$controller_;
         ContactNewController = $controller('ContactNewController', {});
     }));
@@ -74,20 +74,3 @@ describe('ContactNewController', function () {
         expect(ContactNewController.contactModel).toEqual(defaultModel);
     });
 });
-
-// describe('ContactsService', function () {
-//     var ContactsService;
-//
-//     beforeEach(module('dashboardList'));
-//
-//     beforeEach(inject(function(_Contacts_, _$q_) {
-//         var deferred = _$q_.defer();
-//         ContactsService = _Contacts_;
-//
-//         sinon.stub(ContactsService, 'query', function () {
-//             return deferred.promise
-//         });
-//     }));
-//
-//
-// });

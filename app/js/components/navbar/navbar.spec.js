@@ -1,4 +1,4 @@
-describe('navbarDirective', function() {
+describe('navbarDirective', function () {
     var element;
     var outerScope;
     var innerScope;
@@ -9,7 +9,7 @@ describe('navbarDirective', function() {
     beforeEach(module("js/components/navbar/navbar.directive.tmpl.html"));
     beforeEach(module("js/contacts/contacts.list.tmpl.html"));
 
-    beforeEach(inject(function(_$compile_, _$rootScope_) {
+    beforeEach(inject(function (_$compile_, _$rootScope_) {
         element = angular.element('<navbar></navbar>');
         outerScope = _$rootScope_.$new();
         _$compile_(element)(outerScope);

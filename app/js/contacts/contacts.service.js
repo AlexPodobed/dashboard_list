@@ -270,8 +270,8 @@
         function query() {
             return $q(function (resolve, reject) {
                 setTimeout(function () {
-                    if(!$localStorage.contacts){
-                        reject({err:"There is no contacts"});
+                    if (!$localStorage.contacts) {
+                        reject({err: "There is no contacts"});
                     }
 
                     resolve(angular.copy($localStorage.contacts));
@@ -282,8 +282,8 @@
         function get(contactId) {
             return $q(function (resolve, reject) {
                 setTimeout(function () {
-                    if(!$localStorage.contacts){
-                        reject({err:"There is no contacts"});
+                    if (!$localStorage.contacts) {
+                        reject({err: "There is no contacts"});
                     }
                     var contact = $filter('filter')($localStorage.contacts, {id: contactId})[0];
                     resolve(angular.copy(contact));

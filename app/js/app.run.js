@@ -6,7 +6,7 @@
         .constant('API_URL', "https://some.backend-instance.io/")
         .run(runBlock);
 
-    runBlock.$inject = ["$rootScope","toastr"];
+    runBlock.$inject = ["$rootScope", "toastr"];
 
     function runBlock($rootScope, toastr) {
         toastr.success('Have a nice day!!', "Welcome");

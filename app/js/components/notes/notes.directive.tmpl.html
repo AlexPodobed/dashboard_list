@@ -5,9 +5,9 @@
         </a>
     </note-item>
     <div ng-class="{'hidden': vm.hidden}" class="hidden-note-list">
-        <note-item  ng-repeat="note in vm.hiddenNotes"
-                    note="note"
-                    filter-by="vm.searchText">
+        <note-item ng-repeat="note in vm.hiddenNotes"
+                   note="note"
+                   filter-by="vm.searchText">
         </note-item>
     </div>
 </div>

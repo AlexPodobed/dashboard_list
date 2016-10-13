@@ -10,14 +10,14 @@
             restrict: 'EA',
             templateUrl: "js/components/navbar/navbar.directive.tmpl.html",
             scope: true,
-            replace:true,
+            replace: true,
             controller: NavbarController,
             controllerAs: "vm",
             bindToController: true
         };
     }
 
-    function NavbarController() { 
+    function NavbarController() {
         var vm = this;
         vm.isCollapsed = true;
 
@@ -25,5 +25,4 @@
             vm.isCollapsed = !vm.isCollapsed;
         };
     }
-
 })();
